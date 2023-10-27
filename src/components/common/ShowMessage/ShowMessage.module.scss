@@ -1,0 +1,15 @@
+@mixin wrapper {
+  display: inline-block;
+  padding: 0.5rem;
+  color: #fff;
+}
+
+.error {
+  @include wrapper;
+  background-color: red;
+}
+
+.success {
+  @include wrapper;
+  background-color: green;
+}
