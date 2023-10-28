@@ -1,45 +1,56 @@
-const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require('path')
 
 module.exports = {
-  entry: {
-    main: path.resolve(__dirname, './src/index.js'),
-  },
+  mode: 'development',
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js'
   },
-
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'webpack Boilerplate',
-      template: path.resolve(__dirname, './src/template.html'),
-      filename: 'index.html',
-    }),
-    new CleanWebpackPlugin(),
-  ],
+  optimization: {
+    minimize: true,
+  },
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: ['babel-loader'],
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader',
+            options: { minimize: true },
+          }
+        ]
       },
       {
-        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        type: 'asset/resource',
-      },
-      {
-        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-        type: 'asset/inline',
-      },
-      {
-        test: /\.(scss|css)$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
-      },
-    ],
-  }
+        test: /\.s[ac]ss$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                'src/styles/vars.scss',
+              ]
+            }
+          }
+        ]
 
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      filename: 'index.html'
+    }),
+    new CleanWebpackPlugin(),
+  ],
+  devServer: {
+    compress: true,
+    port: 3000,
+  }
 }

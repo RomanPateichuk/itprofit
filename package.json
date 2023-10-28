@@ -1,26 +1,27 @@
 {
   "name": "itprofit",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
-  "dependencies": {
-    "@babel/core": "^7.23.2",
-    "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/preset-env": "^7.23.2",
-    "babel-loader": "^9.1.3",
-    "clean-webpack-plugin": "^4.0.0",
-    "html-webpack-plugin": "^5.5.3",
-    "sass-loader": "^13.3.2"
-  },
-  "devDependencies": {
-    "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4"
-  },
+  "repository": "https://github.com/RomanPateichuk/itprofit.git",
+  "author": "Roman Patsiaichuk <roman.shady@yandex.ru>",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "start": "webpack serve"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.8.1",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "javascript-obfuscator": "^4.1.0",
+    "sass": "^1.69.5",
+    "sass-loader": "^13.3.2",
+    "sass-resources-loader": "^2.2.5",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-obfuscator": "^3.5.1"
+  }
 }
