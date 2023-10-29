@@ -8,4 +8,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: $main-bg-color;
   position: relative;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
