@@ -24,15 +24,15 @@ export const FeedbackForm = () => {
 
   let removeError = (input) => {
     const parent = input.parentNode
-    if (parent.querySelector('.error')) {
-      parent.querySelector('.error').remove()
+    if (parent.querySelector('.error-form')) {
+      parent.querySelector('.error-form').remove()
     }
   }
 
   let showError = (input, text) => {
     const parent = input.parentNode
     let div = document.createElement('div')
-    div.classList.add('error')
+    div.classList.add('error-form')
     div.innerText = text
     parent.append(div)
   }

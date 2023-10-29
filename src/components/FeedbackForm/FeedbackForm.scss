@@ -1,7 +1,8 @@
 @mixin placeholder-styles {
   color: $feedback-placeholder-font-color;
   font-weight: 100;
-  letter-spacing: .0625rem
+  letter-spacing: .0625rem;
+  font-size: 1rem;
 }
 
 .wrapper {
@@ -44,11 +45,11 @@
         width: 100%;
         font-size: 1rem;
         padding: .5rem;
-        background-color: $feedback-input-bg-color;
         border-radius: .625rem .625rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
         font-weight: bold;
         color: $feedback-input-font-color;
+        background-color: $feedback-input-bg-color;
 
         &::placeholder {
           @include placeholder-styles;
@@ -58,28 +59,28 @@
       textarea {
         padding: .5rem;
         width: inherit;
-        background-color: $feedback-input-bg-color;
         border: none;
         height: 15rem;
         resize: none;
         border-radius: .625rem .625rem;
         font-weight: bold;
         color: $feedback-input-font-color;
+        background-color: $feedback-input-bg-color;
 
         &::placeholder {
           @include placeholder-styles;
         }
+
+        &~.error-form {
+          top: 15rem;
+        }
       }
 
-      .error {
+      .error-form {
         position: absolute;
-        background-color: $feedback-error-bg-color;
-        padding: .3125rem .3125rem .3125rem 2rem;
-        border-radius: 100% .625rem .625rem 100%;
-        width: 75%;
-        left: 105%;
-        top: 35%;
-        transform: translate(0, -50%);
+        width: 100%;
+        left: 0;
+        top: 37px;
         color: $feedback-error-font-color;
         font-weight: 500;
       }
@@ -93,7 +94,7 @@
       padding: 0.8rem;
       width: 100%;
       border-radius: .625rem .625rem;
-      margin-top: 1rem;
+      margin-top: 2rem;
 
       &:hover {
         opacity: 0.7;
